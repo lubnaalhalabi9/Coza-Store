@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme{
+    --color-white:#ffffff;
+    --color-white1:#f7f7f7;
+    --color-white2:#e6e6e6;
+    --color-white3:#f2f2f2;
+    --color-blue1:#717fe0;
+    --color-blue2:#007bff;
+    --color-gray1:#b2b2b2;
+    --color-gray2:#999999;
+    --color-gray3:#888888;
+    --color-gray4:#666666;
+    --color-gray5:#555555;
+    --color-gray6:#333333;
+    --color-dark1:#222222;
+    --color-dark2:#1d1d1d;
+    --color-black:#000000;
+    --color-pink:#f74877;
+    --font-poppins:'Poppins', 'sans-serif';
+}
+
+html{
+    font-family: var(--font-poppins);
+}
+
+/* تغيير لون الأسهم في سلايدر */
+.products-swiper .swiper-button-next,
+.products-swiper .swiper-button-prev {
+    color: var(--color-gray3);  
+    padding: 10px;
+    font-weight: bold;
+    position: absolute;
+    left: 20px;
+    top: 50px;
+}
+
+.products-swiper .swiper-button-next:hover,
+.products-swiper .swiper-button-prev:hover {
+    color: var(--color-gray6);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* إخفاء أسهم التنقل بشكل افتراضي */
+.main-slider .swiper-button-prev,
+.main-slider .swiper-button-next {
+ opacity: 0;
+ visibility: hidden;
+}
+
+/* إظهار الأسهم عند التحويم على السلايدر */
+.main-slider:hover .swiper-button-prev,
+.main-slider:hover .swiper-button-next {
+  opacity: 1;
+  visibility: visible;
+}
+
