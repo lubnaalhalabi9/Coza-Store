@@ -231,7 +231,7 @@ const Header = () => {
 
             {/* 2. واجهة البحث (Search Overlay) */}
             <div className={`fixed inset-0 z-300 bg-white/95 flex items-center justify-center transition-all duration-500 ${isSearchOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}>
-                <button onClick={() => setIsSearchOpen(false)} className="absolute cursor-pointer top-53 right-65 text-5xl text-gray4 hover:text-gray5 transition-transform duration-300">
+                <button onClick={() => setIsSearchOpen(false)} className="absolute cursor-pointer top-60 right-6 md:top-53 md:right-65 text-5xl text-gray4 hover:text-gray5 transition-transform duration-300">
                     <IoMdClose size={30} />
                 </button>
                 <form onSubmit={handleSearchSubmit} className="w-full max-w-3xl px-6">

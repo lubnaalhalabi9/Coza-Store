@@ -721,7 +721,7 @@ const Shop = ({ showPagination = false }) => {
               <button className="cursor-pointer w-9 h-9 flex items-center justify-center rounded-full border border-white2 text-[#808080] hover:bg-gray2 hover:text-white hover:border-gray2 transition duration-300">2</button>
             </div>
           ) : (
-            <div className="text-center mt-12 md:mt-16">
+            <div className="text-center my-12">
               <button className="bg-white2 text-black py-2 px-12 rounded-3xl duration-500 cursor-pointer hover:bg-black hover:text-white shadow-md">
                 Load More
               </button>

@@ -57,7 +57,7 @@ const Features = () => {
   const total = subtotal;
 
   return (
-    <div className="bg-white pt-25 md:pt-36 relative min-h-screen "> 
+    <div className="bg-white pt-25 pb-10 md:pt-36 relative min-h-screen "> 
       {/* حاوية المحتوى الرئيسية */}
       <div className=" container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl ">
         
@@ -86,7 +86,7 @@ const Features = () => {
                 key={product.id} 
                 className="grid grid-cols-12 items-center py-6 sm:py-12 border-b border-white2 px-2 sm:px-0">
                 
-                {/* معلومات المنتج مع الصورة */}
+               {/* معلومات المنتج مع الصورة */}
                 <div className="col-span-12 sm:col-span-6 flex items-center space-x-4 mx-auto sm:mx-0 px-10">
                   <div className="relative group w-16 h-20 cursor-pointer">
                     <img 
@@ -135,14 +135,10 @@ const Features = () => {
                     >
                       +
                     </button>
+            
                   </div>
                 </div>
-                
-                {/* المجموع للمنتج */}
-                <div className="col-span-4 sm:col-span-2 text-center text-gray4 text-[17px] mt-4 sm:mt-0">
-                  <span className="sm:hidden font-semibold text-sm mr-1 block">Total:</span>
-                  ${(product.price * product.quantity).toFixed(2)}
-                </div>
+               
               </div>
             ))}
             
@@ -204,7 +200,7 @@ const Features = () => {
                       >
                         {selectedCountry.label}
                         <IoChevronDownOutline 
-                          className={`fas fa-chevron-down text-gray5 text-sm transition-transform duration-200 hover:text-blue1 ${isCountryOpen ? 'rotate-180' : ''}`}/>
+                          className={` text-gray5 text-sm transition-transform duration-200 hover:text-blue1 ${isCountryOpen ? 'rotate-180' : ''}`}/>
                       </button>
                       {/* قائمة الدول المنسدلة */}
                       {isCountryOpen && (
@@ -264,7 +260,6 @@ const Features = () => {
             <div className="mt-4 px-3 pb-8 py-4">
               <a href='/Features'>
                 <button
-                  onClick={() => console.log('Proceeding to checkout...')}
                   className="w-full py-3 text-white uppercase text-base font-semibold tracking-wider transition duration-200 cursor-pointer rounded-full shadow-lg bg-dark1 hover:bg-blue1">
                   PROCEED TO CHECKOUT
                 </button>
