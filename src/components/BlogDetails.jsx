@@ -37,15 +37,15 @@ const BlogDetail = () => {
   
   return (
     <section className="bg-white p-t-62 p-b-60">
-      <div className="container mx-auto px-4 py-10">
+      <div className="container mx-auto px-4 py-35">
         
         {/* --- Breadcrumbs --- */}
         <div className="flex items-center gap-2 text-sm text-gray5 mb-10">
          
-          <Link to="/" className='text-gray5 hover:text-blue1 transition duration-300'>
+          <Link to="/" className='whitespace-nowrap text-gray5 hover:text-blue1 transition duration-300'>
             Home <FaAngleRight className="inline-block text-[9px] mx-1" />
           </Link>
-          <Link to="/Blog" className='text-gray5 hover:text-blue1 transition duration-300'>
+          <Link to="/Blog" className='whitespace-nowrap text-gray5 hover:text-blue1 transition duration-300'>
             Blog <FaAngleRight className="inline-block text-[9px] mx-1" />
           </Link>
           <span className='text-gray2'>{currentPost.title}</span>

@@ -485,7 +485,6 @@ const Shop = ({ showPagination = false }) => {
 
   // حالات إدارة المنتجات والعروض
   const [selectedCategory, setSelectedCategory] = useState('All Products');
-  const [hoveredBanner, setHoveredBanner] = useState(null);
   const [likedProducts, setLikedProducts] = useState({});
   const [quickViewProduct, setQuickViewProduct] = useState(null);
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
@@ -514,9 +513,6 @@ const Shop = ({ showPagination = false }) => {
   // وظيفة معالجة البحث
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      console.log('Searching for:', searchQuery);
-    }
   };
 
   // إغلاق البحث
