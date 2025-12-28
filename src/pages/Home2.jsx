@@ -10,7 +10,6 @@ import ScrollTop from '../components/ScrollTop';
 const Home2 = () => {
   // إدارة حالات المكون
   const [selectedCategory, setSelectedCategory] = useState('Best Seller'); // الفئة المختارة
-  const [hoveredBanner, setHoveredBanner] = useState(null); // البانر الذي يتم التحويم عليه
   const [likedProducts, setLikedProducts] = useState({}); // المنتجات المفضلة
   const [quickViewProduct, setQuickViewProduct] = useState(null); // المنتج المعروض في العرض السريع
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false); // حالة فتح نافذة العرض السريع
@@ -212,10 +211,6 @@ const Home2 = () => {
                   <span className="text-gray4">Category:</span>
                   <span className="text-gray6">{product.category || 'Uncategorized'}</span>
                 </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray4">Product ID:</span>
-                  <span className="text-gray6">{product.id}</span>
-                </div>
               </div>
             </div>
           </div>
@@ -233,7 +228,7 @@ const Home2 = () => {
   // إغلاق نافذة العرض السريع
   const closeQuickView = () => {
     setIsQuickViewOpen(false);
-    setTimeout(() => {
+    setTimeout(() => {                                           // for animation
       setQuickViewProduct(null);
     }, 300);
   };
@@ -315,7 +310,7 @@ const Home2 = () => {
   // تبديل حالة الإعجاب بالمنتج
   const toggleLike = (product) => {
     setLikedProducts(prev => {
-      const isLiked = !prev[product];
+      const isLiked = !prev[product.id];
 
       if (isLiked) {
         setWishlistProduct(product);
@@ -324,7 +319,7 @@ const Home2 = () => {
 
       return {
         ...prev,
-        [product]: isLiked
+        [product.id]: isLiked
       };
     });
   };
@@ -353,7 +348,7 @@ const Home2 = () => {
           spaceBetween={0}
           slidesPerView={1}
           navigation={true}
-          autoplay={{ delay: 6000, disableOnInteraction: false }}
+          autoplay={{ delay: 6000, disableOnInteraction: false }}      // تعطيل التفاعل
           loop={true}
           className="h-full w-full products-swiper main-slider"
         >
@@ -362,7 +357,7 @@ const Home2 = () => {
               {({ isActive }) => (
                 <div 
                   className="relative h-full w-full bg-cover bg-center flex items-center"
-                  style={{ backgroundImage:` url(${image}) `}}
+                  style={{ backgroundImage:` url(${image}) `}}                // مسار الصورة
                 >
                   {/* طبقة شفافة لتحسين رؤية النص */}
                   <div className="absolute inset-0 bg-black/10"></div>
@@ -408,8 +403,6 @@ const Home2 = () => {
               <div 
                 key={banner.id} 
                 className={`relative overflow-hidden group ${banner.colSpan} cursor-pointer`}
-                onMouseEnter={() => setHoveredBanner(banner.id)}
-                onMouseLeave={() => setHoveredBanner(null)}
               >
                 {/* حاوية الصورة */}
                 <div className="relative h-fit w-fit overflow-hidden border-white2 border group-hover:border-blue1/30 transition-all duration-300">
@@ -578,7 +571,7 @@ const Home2 = () => {
                           
                           {/* زر القلب (الإعجاب) */}
                           <button
-                            onClick={() => toggleLike(product.id)}
+                            onClick={() => toggleLike(product)}
                             className="cursor-pointer text-gray3 hover:text-blue1 text-2xl transition-colors"
                           >
                             {likedProducts[product.id] ? (

@@ -1,19 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Navigation, Autoplay, A11y, EffectFade } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { IoMdClose, IoMdSearch } from 'react-icons/io';
+import { Swiper, SwiperSlide } from 'swiper/react';;
 import 'swiper/css/effect-fade';
-import { AiOutlineHeart, AiFillHeart, AiOutlineClose, AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
 import ScrollTop from '../components/ScrollTop'
 import Shop from './Shop';
 
-// المكون الرئيسي للصفحة الرئيسية
 const Home = () => {
-  // إدارة الحالة (State Management)
-  const [hoveredBanner, setHoveredBanner] = useState(null); // لتتبع البانر الذي يحوم عليه الماوس
 
   // مصفوفة صور السلايدر الرئيسي
   const sliderImages = [
@@ -30,7 +25,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* قسم السلايدر الرئيسي (Hero Slider) */}
       <section className="relative h-screen w-full overflow-hidden">
         <Swiper
@@ -95,8 +90,6 @@ const Home = () => {
               <div
                 key={banner.id}
                 className={`relative overflow-hidden group ${banner.colSpan} cursor-pointer`}
-                onMouseEnter={() => setHoveredBanner(banner.id)}
-                onMouseLeave={() => setHoveredBanner(null)}
               >
                 {/* حاوية صورة البانر */}
                 <div className="relative h-fit w-fit overflow-hidden border-white2 border group-hover:border-blue1/30 transition-all duration-300">
