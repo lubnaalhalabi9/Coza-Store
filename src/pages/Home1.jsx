@@ -1,12 +1,7 @@
 import { useState } from 'react';
-import { Navigation, Autoplay, A11y, EffectFade } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';;
-import 'swiper/css/effect-fade';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/autoplay';
 import ScrollTop from '../components/ScrollTop'
 import Shop from './Shop';
+import HeroSlider from "../components/HeroSlider";
 
 const Home = () => {
 
@@ -26,61 +21,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* قسم السلايدر الرئيسي (Hero Slider) */}
-      <section className="relative h-screen w-full overflow-hidden">
-        <Swiper
-          modules={[Navigation, Autoplay, A11y, EffectFade]}
-          effect="fade" // تأثير التلاشي بين الشرائح
-          speed={1000}
-          spaceBetween={0}
-          slidesPerView={1}
-          navigation={true}
-          autoplay={{ delay: 6000, disableOnInteraction: false }}
-          loop={true}
-          className="h-full w-full products-swiper"
-        >
-          {sliderImages.map((image, index) => (
-            <SwiperSlide key={index}>
-              {({ isActive }) => (
-                <div 
-                  className="relative h-full w-full bg-cover bg-center flex items-center"
-                  style={{ backgroundImage: `url(${image})` }}
-                >
-                  {/* طبقة تغطية شفافة لتحسين وضوح النص */}
-                  <div className="absolute inset-0 bg-black/10"></div>
-
-                  {/* محتوى النص على السلايدر */}
-                  <div className="container mx-auto px-4 z-10">
-                    <div className="max-w-lg text-black">
-                      {/* النص العلوي (يظهر بتحريك من الأعلى) */}
-                      <span className={`block text-xl md:text-2xl mb-4 transition-all duration-1000 
-                        ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}
-                        style={{ transitionDelay: '300ms' }}>
-                        {index === 0 ? 'Women Collection 2018' : index === 2 ? 'Men Collection 2018' : 'Men New-Session'}
-                      </span>
-
-                      {/* العنوان الرئيسي (يظهر بتأثير التكبير) */}
-                      <h1 className={`text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight transition-all duration-1000
-                        ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
-                        style={{ transitionDelay: '800ms' }}>
-                        {index === 0 ? 'NEW SEASON' : index === 2 ? 'NEW ARRIVALS' : 'JACKETS & COATS'}
-                      </h1>
-
-                      {/* زر الدعوة للإجراء (يظهر من الأسفل) */}
-                      <div className={`transition-all duration-1000 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                        style={{ transitionDelay: '1300ms' }}>
-                        <button className="cursor-pointer bg-blue1 hover:bg-black text-white py-3 px-10 transition duration-300 rounded-full text-lg font-medium uppercase shadow-lg">
-                          SHOP NOW
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </section>
+      <HeroSlider sliderImages={sliderImages} />
 
       {/* قسم البانرات الإعلانية */}
       <section className="py-12 md:py-16 lg:py-20 bg-white">
@@ -140,5 +81,4 @@ const Home = () => {
     </div>
   );
 };
-
 export default Home;
