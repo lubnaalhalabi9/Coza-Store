@@ -1,10 +1,31 @@
 import { VscLocation } from "react-icons/vsc";
 import { LuPhone } from "react-icons/lu";
 import { CiMail } from "react-icons/ci";
+import { useState } from "react";
 import Title from "../components/Title";
 import ScrollTop from "../components/ScrollTop";
 
 const Contact = () => {
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      if (!email || !message) return;
+
+      setIsSubmitting(true);
+
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setSuccess(true);
+        setEmail("");
+        setMessage("");
+      }, 1000);
+    };
+
+
   return (
     <div className="md:pt-25">
       <Title 
@@ -25,6 +46,8 @@ const Contact = () => {
               <input
                 type="email"
                 placeholder="Your Email Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="text-sm w-full border border-white2 rounded-md px-4 py-3 pl-10 focus:outline-none"
               />
               <div className="absolute top-1/2 left-3 transform -translate-y-1/2">
@@ -39,12 +62,28 @@ const Contact = () => {
             <textarea
               placeholder="How Can We Help?"
               rows="6"
-              className="text-sm w-full border border-white2 rounded-md px-4 py-3 resize-none focus:outline-none"
-            ></textarea>
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className="text-sm w-full border border-white2 rounded-md px-4 py-3 resize-none focus:outline-none">
+            </textarea>
 
-            <button className="bg-black text-white py-3 mt-3 rounded-full w-full cursor-pointer hover:bg-blue1 hover:text-white duration-500">
-              SUBMIT
+            <button  onClick={handleSubmit}
+              disabled={isSubmitting}
+              className={`py-3 mt-3 rounded-full w-full transition-all duration-500
+                ${
+                  isSubmitting
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-black hover:bg-blue1 text-white"
+                }`}
+            >
+              {isSubmitting ? "SENDING..." : "SUBMIT"}
             </button>
+            {success && (
+              <p className="text-green-600 text-sm mt-4">
+                Your message has been sent successfully.
+              </p>
+            )}
+
           </div>
 
           {/* RIGHT SIDE - CONTACT INFO */}

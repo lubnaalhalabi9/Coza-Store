@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { IoSearchSharp } from "react-icons/io5";
 import { FaAngleRight } from 'react-icons/fa';
+import ScrollTop from './ScrollTop';
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -203,6 +204,7 @@ const BlogDetail = () => {
             </div>
           </div>
         </div>
+        <ScrollTop/>
       </div>
     </section>
   );
