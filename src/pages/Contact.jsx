@@ -22,7 +22,7 @@ const Contact = () => {
         setSuccess(true);
         setEmail("");
         setMessage("");
-      }, 1000);
+      }, 2000);
     };
 
 
@@ -73,7 +73,7 @@ const Contact = () => {
                 ${
                   isSubmitting
                     ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-black hover:bg-blue1 text-white"
+                    : "bg-black hover:bg-blue1 text-white cursor-pointer"
                 }`}
             >
               {isSubmitting ? "SENDING..." : "SUBMIT"}

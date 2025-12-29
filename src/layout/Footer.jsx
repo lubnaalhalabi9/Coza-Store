@@ -1,5 +1,4 @@
-// استيراد الأيقونات (تأكد من تثبيت react-icons)
-import { FaFacebookF, FaInstagram, FaPinterestP, FaCcPaypal, FaCcVisa, FaCcMastercard, FaCcAmex } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaPinterestP } from 'react-icons/fa';
 
 // بيانات الروابط للعرض في الأعمدة
 const footerSections = [

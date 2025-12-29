@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay, EffectFade } from 'swiper/modules';
-import { AiOutlineHeart, AiFillHeart, AiOutlineClose, AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
-import { IoMdSearch, IoMdClose } from 'react-icons/io';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
